@@ -1,13 +1,18 @@
 {% load static %}
+{% load custom_tags %}
+
 <!-- Top header start -->
 <header class="top-header th-2 top-header-bg">
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-8 col-sm-7">
         <div class="list-inline">
-          <a href="tel:+55-4XX-634-7071"><i class="fa fa-phone"></i>{{busines_info}}</a>
-          <a href="tel:info@themevessel.com"><i class="fa fa-envelope"></i>info@themevessel.com</a>
-          <a href="tel:info@themevessel.com"><i class="fa fa-clock-o"></i>Mon - Sun: 8:00am - 6:00pm</a>
+          {% businessInfo as businessInfo %}
+          {% for info in businessInfo %}
+          <a href="tel:+55-4XX-634-7071"><i class="fa fa-phone"></i>{{info.phone_number}}</a>
+          <a href="tel:info@themevessel.com"><i class="fa fa-envelope"></i>{{info.email_address}}</a>
+          <a href="tel:info@themevessel.com"><i class="fa fa-clock-o"></i>{{info.opening_hours}}</a>
+          {% endfor %}
         </div>
       </div>
       <div class="col-lg-4 col-md-4 col-sm-5">
