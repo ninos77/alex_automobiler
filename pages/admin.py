@@ -16,8 +16,8 @@ class TeamAdmin(admin.ModelAdmin):
         model = Team
 
 class BusinessInfoAdmin(admin.ModelAdmin):
-  
   list_display = ['name_title', 'phone_number', 'email_address', 'opening_hours']
+
 
 
 
