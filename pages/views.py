@@ -8,7 +8,7 @@ def home(request):
     featured_cars = Car.objects.order_by('-created_date').filter(is_featured=True)
     all_cars = Car.objects.order_by('-created_date')
     teams = Team.objects.all()
-    model_search = all_cars.values_list('model',flat=True).distinct()
+    make_search = all_cars.values_list('make',flat=True).distinct()
     fuel_type_search = all_cars.values_list('fuel_type',flat=True).distinct()
     transmission_search = all_cars.values_list('transmission',flat=True).distinct()
     year_search = all_cars.values_list('year',flat=True).distinct()
@@ -17,7 +17,7 @@ def home(request):
         'teams': teams,
         'featured_cars':featured_cars,
         'all_cars':all_cars,
-        'model_search':model_search,
+        'make_search':make_search,
         'fuel_type_search':fuel_type_search,
         'transmission_search':transmission_search,
         'year_search':year_search,

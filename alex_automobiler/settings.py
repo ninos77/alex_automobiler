@@ -84,6 +84,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'alex_car_db',
+        }
 
     }
 }

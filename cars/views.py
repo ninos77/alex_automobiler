@@ -34,7 +34,7 @@ def search(request):
   if 'make' in request.GET:
     make = request.GET['make']
     if make:
-      queries  = Q(model__iexact=make)
+      queries  = Q(make__iexact=make)
       all_cars = all_cars.filter(queries) 
   if 'fuel_type' in request.GET:
     fuel_type = request.GET['fuel_type']
