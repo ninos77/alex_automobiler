@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
 
 # Create your views here.
 from django.shortcuts import render,get_object_or_404
 from django.db.models import Q
 from .models import Car, Make, Model
 from django.core.paginator import EmptyPage,PageNotAnInteger, Paginator
+from django.contrib import messages
 
 # Create your views here.
 
@@ -26,6 +27,9 @@ def search(request):
   all_cars = Car.objects.order_by('-created_date')
   if 'keyword' in request.GET:
     keyword = request.GET['keyword']
+    if not keyword:
+       messages.warning(request, "You didn't enter any search criteria!",)
+       return redirect(reverse('cars'))
     if keyword:
       queries  = Q(description__icontains=keyword) | Q(make__make_name__iexact=keyword) | Q(transmission__iexact=keyword)| Q(fuel_type__iexact=keyword)| Q(model__model_name__iexact=keyword)
       all_cars = all_cars.filter(queries)
