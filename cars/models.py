@@ -5,6 +5,27 @@ from ckeditor.fields import RichTextField
 
 # Create your models here.
 
+class Make(models.Model):
+  make_name = models.CharField(max_length=100,verbose_name='bilproducenter')
+
+  def __str__(self):
+    return self.make_name
+
+class Model(models.Model):
+  model_name = models.CharField(max_length=100,verbose_name='model')
+  make = models.ForeignKey("Make",null=True, blank=True, on_delete=models.CASCADE)
+
+  def __str__(self):
+    return self.model_name
+
+
+class Style(models.Model):
+  style_name = models.CharField(max_length=100,verbose_name='bil kaross stil') 
+
+  def __str__(self):
+    return self.style_name
+
+
 class Car(models.Model):
    year_choice = []
    for r in range(1980,(datetime.now().year+1)):
@@ -63,8 +84,8 @@ class Car(models.Model):
    car_title = models.CharField(max_length=255,verbose_name='Biltitel')
    address = models.CharField(max_length=100,verbose_name='adresse')
    color = models.CharField(max_length=100,verbose_name='farve')
-   make  = models.CharField(max_length=100,verbose_name='bilmærke')
-   model = models.CharField(max_length=100,verbose_name='model')
+   make  = models.ForeignKey(Make,null=True, blank=True, on_delete=models.SET_NULL,verbose_name='bilmærke',related_name='make') 
+   model = models.ForeignKey(Model,null=True, blank=True, on_delete=models.SET_NULL,verbose_name='model',related_name='model')                              
    year = models.IntegerField(('år'), choices=year_choice[::-1])
    condition = models.CharField(max_length=100,null=True,blank=True,verbose_name='tilstand')
    price= models.DecimalField(max_digits=10, decimal_places=2,verbose_name='pris')
@@ -77,7 +98,7 @@ class Car(models.Model):
    car_photo_4 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True,null=True)
    car_photo_5 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True,null=True)
    features = MultiSelectField(choices=features_choices,verbose_name='funktioner')
-   body_style = models.CharField(max_length=100,verbose_name='bil kaross stil')
+   body_style = models.ForeignKey("Style",null=True, blank=True, on_delete=models.SET_NULL,verbose_name='bil kaross stil') 
    transmission = models.CharField(choices=transmission_choices, max_length=25,verbose_name='gear')
    km = models.IntegerField()
    doors = models.CharField(choices=door_choices, max_length=10,verbose_name='døre')

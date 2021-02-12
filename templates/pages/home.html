@@ -42,58 +42,20 @@
       </div>
       <!-- Search box 3 start -->
       <div class="search-box-4 sb-8">
-        <form action="{% url 'search'%}" method="">
+        <form action="{% url 'search'%}" method="get">
           <div class="form-group">
             <input type="text" name="keyword" placeholder="Search by name" class="form-control">
           </div>
           <div class="form-group">
-            <select class="form-control search-fields" name="make">
-              <option selected="true" disabled="disabled">Model</option>
-              {% for m in make_search %}
-              <option value="{{m}}">{{m}}</option>
+            <select id="select1" class="form-control search-fields" name="make">
+              <option selected="true" disabled="disabled">--Vælg Bilmærke--</option>
+              {% for item in make_search %}
+              <option value="{{item}}">{{item}}</option>
               {% endfor %}
             </select>
           </div>
           <div class="form-group">
-            <select class="form-control search-fields" name="fuel_type">
-              <option selected="true" disabled="disabled">Fuel Type</option>
-              {% for f in fuel_type_search %}
-              <option value="{{f}}">{{f}}</option>
-              {% endfor %}
-            </select>
-          </div>
-          <div class="form-group">
-            <select class="form-control search-fields" name="transmission">
-              <option selected="true" disabled="disabled">Transmission</option>
-              {% for t in transmission_search %}
-              <option value="{{t}}">{{t}}</option>
-              {% endfor %}
-            </select>
-          </div>
-          <div class="form-group">
-            <select class="form-control search-fields" name="year">
-              <option selected="true" disabled="disabled">Year</option>
-              {% for y in year_search %}
-              <option value="{{y}}">{{y}}</option>
-              {% endfor %}
-            </select>
-          </div>
-          <div class="form-group">
-            <select class="form-control search-fields" name="body_style">
-              <option selected="true" disabled="disabled">Select Type Of Car</option>
-              {% for b in body_style_search %}
-              <option value="{{b}}">{{b}}</option>
-              {% endfor %}
-            </select>
-          </div>
-          <div class="range-slider clearfix">
-            <label>Price</label>
-            <div data-min="0" data-max="150000" data-min-name="min_price" data-max-name="max_price" data-unit="USD"
-              class="range-slider-ui ui-slider" aria-disabled="false"></div>
-            <div class="clearfix"></div>
-          </div>
-          <div class="form-group">
-            <button class="btn btn-block button-theme btn-md">
+            <button class="btn btn-block button-theme btn-md"  >
               <i class="fa fa-search"></i> Search
             </button>
           </div>

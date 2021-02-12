@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     'cars',
     # other
     'ckeditor',
-    'django.contrib.humanize' ,
+    'django.contrib.humanize',
+    'django_filters',
+    'django_select2',
 
 ]
 
@@ -84,7 +86,6 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'alex_car_db',
-        }
 
     }
 }

@@ -113,10 +113,17 @@
 <div class="featured-car content-area">
   <div class="container">
       <!-- Main title -->
+      {% if all_cars %}
       <div class="main-title">
           <h1>Here's your <span>Cars</span></h1>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       </div>
+      {% else %}
+      <div class="main-title">
+        <h1>There is no <span>Cars</span></h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    {% endif %}
       <div class="row">
         {% for c in all_cars %}
         <div class="col-lg-4 col-md-6">

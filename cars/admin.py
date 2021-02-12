@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Car
+from .models import *
 from django.utils.html import format_html
 # Register your models here.
 
@@ -16,4 +16,20 @@ class CarAdmin(admin.ModelAdmin):
   list_filter = ('model', 'make','model', 'fuel_type')
 
 
+
+class MakeAdmin(admin.ModelAdmin):
+  list_display = ('make_name',)
+
+
+class ModelAdmin(admin.ModelAdmin):
+  list_display = ('model_name','make')
+
+class StyleAdmin(admin.ModelAdmin):
+  list_display = ('style_name',)
+
+  
+
 admin.site.register(Car,CarAdmin)
+admin.site.register(Make,MakeAdmin)
+admin.site.register(Model,ModelAdmin)
+admin.site.register(Style,StyleAdmin)

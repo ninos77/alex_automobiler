@@ -1,18 +1,20 @@
 from django.shortcuts import render
 from .models import BusinessInfo,Team
-from cars.models import Car
+from cars.models import Car,Model,Make
 
 # Cdef home(request):
 
 def home(request):
     featured_cars = Car.objects.order_by('-created_date').filter(is_featured=True)
     all_cars = Car.objects.order_by('-created_date')
+    all_models = Model.objects.all()
+    all_makes = Make.objects.all()
     teams = Team.objects.all()
-    make_search = all_cars.values_list('make',flat=True).distinct()
+    make_search = set(Make.objects.values_list('make_name', flat=True))
     fuel_type_search = all_cars.values_list('fuel_type',flat=True).distinct()
     transmission_search = all_cars.values_list('transmission',flat=True).distinct()
     year_search = all_cars.values_list('year',flat=True).distinct()
-    body_style_search = all_cars.values_list('body_style',flat=True).distinct()
+    model_search = Model.objects.values_list('model_name',flat=True).distinct()
     data = {
         'teams': teams,
         'featured_cars':featured_cars,
@@ -21,7 +23,7 @@ def home(request):
         'fuel_type_search':fuel_type_search,
         'transmission_search':transmission_search,
         'year_search':year_search,
-        'body_style_search':body_style_search,
+        'model_search':model_search,
         }
     return render(request, 'pages/home.html', data)
 
