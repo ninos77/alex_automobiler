@@ -28,7 +28,7 @@ def search(request):
   if 'keyword' in request.GET:
     keyword = request.GET['keyword']
     if not keyword:
-       messages.warning(request, "You didn't enter any search criteria!",)
+       messages.error(request, "You didn't enter any search criteria!",)
        return redirect(reverse('cars'))
     if keyword:
       queries  = Q(description__icontains=keyword) | Q(make__make_name__iexact=keyword) | Q(transmission__iexact=keyword)| Q(fuel_type__iexact=keyword)| Q(model__model_name__iexact=keyword)

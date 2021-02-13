@@ -23,6 +23,7 @@
               <div class="col-lg-8 col-md-12 col-xs-12">
                   <div class="car-details-section">
                       <!-- Heading start -->
+                      {% include 'includes/messages.html'%}
                       <div class="heading-car clearfix">
                           <div class="pull-left">
                               <h3>{{singel_car.car_title}}</h3>
@@ -217,59 +218,41 @@
                                       </button>
                                   </div>
                                   <div class="modal-body">
-                                      <form action="#">
+                                      <form action="{% url 'inquiry'%}" method="POST">
+                                          {% csrf_token %}
+                                          <input type="hidden" name="car_id" value="{{ singel_car.id }}">
                                           <div class="form-group">
-                                              <label for="name" class="col-form-label">Hello, My Name is</label>
+                                              <label for="name" class="col-form-label">Hej mit navn er</label>
                                               <div class="row">
                                                   <div class="col">
-                                                      <input type="text" name="first_name" class="form-control" placeholder="First Name" required>
-                                                  </div>
-                                                  <div class="col">
-                                                      <input type="text" name="last_name" class="form-control" placeholder="Last Name" required>
+                                                      <input type="text" name="full_name" class="form-control" placeholder="Dit navn" required>
                                                   </div>
                                               </div>
                                           </div>
                                           <div class="form-group">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <label for="name" class="col-form-label">Du kan nå mig via e-mail på</label>
+                                                    <input type="email" name="email" class="form-control" placeholder="Email Address" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                          <div class="form-group">
                                               <select class="form-control" id="sel1" name="customer_need">
-                                                  <option value="I'm interested in this">I'm interested in this</option>
-                                                  <option value="I'd like to know your best price for this">I'd like to know your best price for this</option>
-                                                  <option value="I'd like to test drive this">I'd like to test drive this</option>
-                                                  <option value="I'd like a history report for this">I'd like a history report for this</option>
+                                                  <option value="Jeg er interesseret i dette">Jeg er interesseret i dette</option>
+                                                  <option value="Jeg vil gerne vide din bedste pris for dette">Jeg vil gerne vide din bedste pris for dette</option>
+                                                  <option value="Jeg vil gerne prøve at køre dette">Jeg vil gerne prøve at køre dette</option>
+                                                  <option value="Jeg vil gerne have en historierapport for dette">Jeg vil gerne have en historierapport for dette</option>
                                               </select>
                                           </div>
 
                                           <div class="form-group">
                                               <input type="text" name="car_title" class="form-control" value="{{singel_car.car_title}}" readonly>
-                                          </div>
+                                          </div>     
 
                                           <div class="form-group">
-                                              <label for="name" class="col-form-label">I live in</label>
-                                              <div class="row">
-                                                  <div class="col">
-                                                      <input type="text" name="city" class="form-control" placeholder="City" required>
-                                                  </div>
-                                                  <div class="col">
-                                                      <input type="text" name="state" class="form-control" placeholder="State" required>
-                                                  </div>
-                                              </div>
-                                          </div>
-
-                                          <div class="form-group">
-                                              <div class="row">
-                                                  <div class="col">
-                                                      <label for="name" class="col-form-label">You can reach me by email at</label>
-                                                      <input type="email" name="email" class="form-control" placeholder="Email Address" required>
-                                                  </div>
-                                                  <div class="col">
-                                                      <label for="phone" class="col-form-label">or by phone at</label>
-                                                      <input type="text" name="phone" placeholder="Phone Number (optional)" class="form-control">
-                                                  </div>
-                                              </div>
-                                          </div>
-
-                                          <div class="form-group">
-                                              <label for="message" class="col-form-label">Add comments</label>
-                                              <textarea name="message" class="form-control" placeholder="Enter your message here (optional)"></textarea>
+                                              <label for="message" class="col-form-label">Tilføj kommentarer</label>
+                                              <textarea name="message" class="form-control" placeholder="Indtast din besked her (valgfrit)"></textarea>
                                           </div>
                                           <hr>
                                           <input type="submit" value="Send" class="btn btn-block btn-danger">
