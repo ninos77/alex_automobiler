@@ -101,6 +101,7 @@ class Car(models.Model):
    body_style = models.ForeignKey("Style",null=True, blank=True, on_delete=models.SET_NULL,verbose_name='bil kaross stil') 
    transmission = models.CharField(choices=transmission_choices, max_length=25,verbose_name='gear')
    km = models.IntegerField()
+   vehicle_number = models.CharField(null=True, blank=True, max_length=25,verbose_name='nummerplade')
    doors = models.CharField(choices=door_choices, max_length=10,verbose_name='døre')
    fuel_type = models.CharField(choices=fuel_choices, max_length=10,verbose_name='brændstoftype')
    is_featured = models.BooleanField(default=False,verbose_name='er vist')

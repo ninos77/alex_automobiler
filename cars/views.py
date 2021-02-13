@@ -28,8 +28,8 @@ def search(request):
   if 'keyword' in request.GET:
     keyword = request.GET['keyword']
     if not keyword:
-       messages.error(request, "You didn't enter any search criteria!",)
-       return redirect(reverse('cars'))
+      messages.error(request, "You didn't enter any search criteria!")
+      return render (request,'cars/search.html') 
     if keyword:
       queries  = Q(description__icontains=keyword) | Q(make__make_name__iexact=keyword) | Q(transmission__iexact=keyword)| Q(fuel_type__iexact=keyword)| Q(model__model_name__iexact=keyword)
       all_cars = all_cars.filter(queries)
@@ -41,4 +41,5 @@ def search(request):
       all_cars  = all_cars.filter(make__make_name__iexact=makes)
   data = {'all_cars':all_cars}
   return render (request,'cars/search.html',data)  
+
 

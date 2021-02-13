@@ -1,6 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import BusinessInfo,Team
 from cars.models import Car,Model,Make
+from django.contrib.auth.models import User
+from django.core.mail import send_mail
+from django.contrib import messages
 
 # Cdef home(request):
 
@@ -39,6 +42,27 @@ def services(request):
 
 
 def contact(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        message = request.POST['message']
+        email_subject = "You have Email from Alexautomobiler"
+        message_body = 'Name: '+ name +'.'+'\nEmail: '+ email +'.'+'\n\n'+ message +'.'
+        admin_info = User.objects.get(is_superuser=True)
+        admin_email = admin_info.email 
+
+        send_mail(
+
+                email_subject,
+                message_body,
+                email,
+                [admin_email],
+                fail_silently=False,
+                
+            )
+        messages.success(request,"You request hase been submited")
+        return redirect('contact')     
+
     return render(request, 'pages/contact.html')
 
 
