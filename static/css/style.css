@@ -920,13 +920,18 @@ input[type=checkbox]:checked + label:before {
 
 .banner-bg {
     background: url("../img/banner/banner-1.jpg");
+    
 }
 
 .item-bg {
     /*background: url("../img/banner-1.jpg");*/
     height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.747), rgba(0, 0, 0, 0.781));
     /*animation: bgburnsEast 25s linear infinite alternate;
     -webkit-animation: bgburnsEast 25s linear infinite alternate;*/
+}
+.slid-bg{
+    background: linear-gradient(rgba(0, 0, 0, 0.747), rgba(0, 0, 0, 0.781));
 }
 
 .banner-min-height {
@@ -6084,7 +6089,7 @@ footer {
     top: 25%;
     right: 10%;
     z-index: 1;
-    background: #fff;
+    background: linear-gradient(rgba(0, 0, 0, 0.356), rgba(0, 0, 0, 0.541));
     border-radius: 10px;
 }
 

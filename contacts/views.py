@@ -20,21 +20,20 @@ def inquiry(request):
       return redirect('/cars/'+car_id)
     
     contact = Contact(full_name=full_name,email=email,customer_need=customer_need,car_title=car_title,message=message,car_id=car_id)
-
+    email_subject = "You have Email from Alexautomobiler asking about this car "+ car_title +'.'
+    message_body = 'Name: '+ full_name +'.'+'\nEmail: '+ email +'.'+'\n\n'+ message +'.'
     admin_info = User.objects.get(is_superuser=True)
     admin_email = admin_info.email 
 
     send_mail(
 
-          'Aske about a car',
-          'You have message abour this car '+ car_title ,
+          email_subject,
+          message_body,
           email,
           [admin_email],
           fail_silently=False,
           
         )
-
-
     contact.save()
     messages.success(request,"You request hase been submited")
     return redirect('/cars/'+car_id)
