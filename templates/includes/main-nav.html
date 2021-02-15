@@ -26,7 +26,7 @@
 <!-- Main header start -->
 <header class="main-header sticky-header header-with-top">
   <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-light ">
       <a class="navbar-brand company-logo" href="{% url 'home' %}">
         <img src="{% static 'img/logos/black-logo.png' %}" alt="logo">
       </a>
@@ -34,8 +34,8 @@
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="fa fa-bars"></span>
       </button>
-      <div class="navbar-collapse collapse w-100" id="navbar">
-        <ul class="navbar-nav ml-auto">
+      <div class="navbar-collapse collapse w-100 " id="navbar">
+        <ul class="navbar-nav ml-auto ">
           <li class="nav-item">
             <a {% if '/' == request.path %} class="nav-link active" {% else %} class="nav-link" {% endif %}
               href="{% url 'home' %}" aria-haspopup="true" aria-expanded="false">
@@ -53,7 +53,7 @@
               About
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item ">
             <a {% if 'services' in request.path %} class="nav-link active" {% else %} class="nav-link" {% endif %}
               href="{% url 'services' %}">
               Services
@@ -65,8 +65,8 @@
             <a {% if 'contact' in request.path %} class="nav-link active" {% else %} class="nav-link" {% endif %}
               href="{% url 'contact' %}">Contact</a>
           </li>
-          <li class="nav-item dropdown m-hide">
-            <a {% if 'search' in request.path %} class="nav-link active" {% else %} class="nav-link" {% endif %} href="#full-page-search" class="nav-link h-icon">
+          <li class="nav-item dropdown">
+            <a {% if 'search' in request.path %} class="nav-link active" {% else %} class="nav-link" {% endif %} href="#full-page-search" class="nav-link h-icon ">
                 <i class="fa fa-search"></i>
             </a>
         </li>

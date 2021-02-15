@@ -13,11 +13,11 @@ def home(request):
     all_models = Model.objects.all()
     all_makes = Make.objects.all()
     teams = Team.objects.all()
-    make_search = set(Make.objects.values_list('make_name', flat=True))
+    make_search = set(all_makes.values_list('make_name', flat=True))
     fuel_type_search = all_cars.values_list('fuel_type',flat=True).distinct()
     transmission_search = all_cars.values_list('transmission',flat=True).distinct()
     year_search = all_cars.values_list('year',flat=True).distinct()
-    model_search = Model.objects.values_list('model_name',flat=True).distinct()
+    model_search = all_models.values_list('model_name',flat=True).distinct()
     data = {
         'teams': teams,
         'featured_cars':featured_cars,
