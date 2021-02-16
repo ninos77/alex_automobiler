@@ -50,8 +50,8 @@
           <div class="form-group">
             <select id="select1" class="form-control search-fields" name="make">
               <option selected="true" disabled="disabled">--Vælg Bilmærke--</option>
-              {% for item in make_search %}
-              <option value="{{item}}">{{item}}</option>
+              {% for item in all_makes %}
+              <option value="{{item.id}}">{{item}}</option>
               {% endfor %}
             </select>
           </div>

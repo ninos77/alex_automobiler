@@ -122,57 +122,18 @@
               <div class="sidebar-right">
                   <!-- Advanced search start -->
                   <div class="widget advanced-search2">
-                      <h3 class="sidebar-title">Search your desire car</h3>
-                      <form method="GET">
-                          <div class="form-group">
-                              <select class="selectpicker search-fields" name="brand">
-                                  <option>Brand</option>
-                                  <option>Any</option>
-                                  <option>New</option>
-                                  <option>Semi-New</option>
-                                  <option>Damaged</option>
-                                  <option>Used</option>
-                              </select>
+                      <h3 class="sidebar-title">Search your car</h3>
+                      <form action="{% url 'search'%}" method="get" >
+                        <div class="form-group">
+                            <input type="text" name="keyword" placeholder="Search by name" class="form-control">
                           </div>
                           <div class="form-group">
-                              <select class="selectpicker search-fields" name="location">
-                                  <option>Location</option>
-                                  <option>United States</option>
-                                  <option>United Kingdom</option>
-                                  <option>American Samoa</option>
-                                  <option>Belgium</option>
-                                  <option>Cameroon</option>
-                                  <option>Canada</option>
-                              </select>
-                          </div>
-                          <div class="form-group">
-                              <select class="selectpicker search-fields" name="year">
-                                  <option>Year</option>
-                                  <option>2016</option>
-                                  <option>2017</option>
-                                  <option>2018</option>
-                                  <option>2019</option>
-                                  <option>2020</option>
-                              </select>
-                          </div>
-                          <div class="form-group">
-                              <select class="selectpicker search-fields" name="category">
-                                  <option>Category</option>
-                                  <option>Luxury Car</option>
-                                  <option>Pickup Truck</option>
-                                  <option>Minivan</option>
-                                  <option>Truck</option>
-                                  <option>Sports Car</option>
-                                  <option>Wagon</option>
-                              </select>
-                          </div>
-                          <div class="form-group">
-                              <select class="selectpicker search-fields" name="transmission">
-                                  <option>Transmission</option>
-                                  <option>Automatic</option>
-                                  <option>Manual</option>
-                                  <option>Tiptronic</option>
-                              </select>
+                            <select id="select1" class="form-control search-fields" name="make">
+                              <option selected="true" disabled="disabled">--Vælg Bilmærke--</option>
+                              {% for item in all_makes %}
+                              <option value="{{item.id}}">{{item}}</option>
+                              {% endfor %}
+                            </select>
                           </div>
                           <div class="range-slider clearfix">
                               <label>Price</label>
@@ -190,11 +151,9 @@
                       <h5 class="sidebar-title">Follow us</h5>
                       <div class="social-list clearfix">
                           <ul>
-                              <li><a href="#" class="facebook-bg"><i class="fa fa-facebook"></i></a></li>
-                              <li><a href="#" class="twitter-bg"><i class="fa fa-twitter"></i></a></li>
-                              <li><a href="#" class="google-bg"><i class="fa fa-google-plus"></i></a></li>
-                              <li><a href="#" class="rss-bg"><i class="fa fa-rss"></i></a></li>
-                              <li><a href="#" class="linkedin-bg"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#" class="facebook-bg"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#" class="instagram-bg"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="#" class="google-bg"><i class="fa fa-youtube"></i></a></li>
                           </ul>
                       </div>
                   </div>

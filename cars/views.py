@@ -11,10 +11,11 @@ from django.contrib import messages
 
 def cars(request):
   all_cars = Car.objects.order_by('-created_date')
+  all_makes = Make.objects.all()
   paginator = Paginator(all_cars,4)
   page = request.GET.get('page')
   paged_cars = paginator.get_page(page)
-  data = {'all_cars':paged_cars}
+  data = {'all_cars':paged_cars,'all_makes':all_makes}
   return render (request,'cars/cars.html',data)
 
 
@@ -25,6 +26,8 @@ def car_detail(request, id):
 
 def search(request):
   make = None
+  model = None
+  min_price = None
   all_cars = Car.objects.order_by('-created_date')
   if 'keyword' in request.GET:
     keyword = request.GET['keyword']
@@ -35,10 +38,15 @@ def search(request):
   if 'make' in request.GET:
     make = request.GET['make']
     if make:
-      queries  = Q(make__make_name__iexact=make)
-      all_cars  = all_cars.filter(queries)
+      all_cars  = all_cars.filter(make_id=make) 
 
-  if not keyword and not make:
+  if 'min_price' in request.GET:
+    min_price = request.GET['min_price']
+    max_price = request.GET['max_price']
+    if max_price:
+      all_cars = all_cars.filter(price__gte=min_price,price__lte=max_price)
+
+  if not keyword and not make and not model and not min_price:
     messages.error(request, "You didn't enter any search criteria!")
     return redirect(reverse('cars')) 
   context ={

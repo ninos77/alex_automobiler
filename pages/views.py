@@ -22,11 +22,11 @@ def home(request):
         'teams': teams,
         'featured_cars':featured_cars,
         'all_cars':all_cars,
-        'make_search':make_search,
+        'all_makes':all_makes,
         'fuel_type_search':fuel_type_search,
         'transmission_search':transmission_search,
         'year_search':year_search,
-        'model_search':model_search,
+        'all_models':all_models,
         }
     return render(request, 'pages/home.html', data)
 
