@@ -26,4 +26,17 @@ class BusinessInfo (models.Model):
   name_title = models.CharField(max_length=255,verbose_name='Navn')
   phone_number = models.CharField(max_length=255,verbose_name='Telefonnummer')
   email_address = models.CharField(max_length=255,verbose_name='Email adresse')
-  opening_hours = models.CharField(max_length=255,verbose_name='Åbningstider')    
+  opening_hours = models.CharField(max_length=255,verbose_name='Åbningstider')   
+
+  def save(self):
+      count = BusinessInfo.objects.all().count()
+      # this will check if the variable exist so we can update the existing ones
+      save_permission = BusinessInfo.has_add_permission(self) 
+      # if there's more than two objects it will not save them in the database
+      if count < 2:
+          super(BusinessInfo, self).save()
+      elif save_permission:
+          super(BusinessInfo, self).save()
+
+  def has_add_permission(self):
+      return BusinessInfo.objects.filter(id=self.id).exists()        

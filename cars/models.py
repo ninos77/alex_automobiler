@@ -112,3 +112,8 @@ class Car(models.Model):
    def __str__(self):
       return self.car_title
 
+
+
+   def car_count(self):
+     return self.objects.all().count()   
+
