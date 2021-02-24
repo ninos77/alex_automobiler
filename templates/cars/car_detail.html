@@ -1,6 +1,6 @@
 {% extends "base.html"%}
 {% load static %}
-
+{% load humanize %}
 {% block content %}
     <!-- Sub banner start -->
     <div class="sub-banner overview-bgi">
@@ -8,7 +8,7 @@
           <div class="breadcrumb-areas">
               <h1>{{singel_car.car_title}}</h1>
               <ul class="breadcrumbs">
-                  <li><a href="{% url 'home' %}">Home</a></li>
+                  <li><a href="{% url 'home' %}">Hjem</a></li>
                   <li class="active">{{singel_car.car_title}}</li>
               </ul>
           </div>
@@ -27,12 +27,9 @@
                       <div class="heading-car clearfix">
                           <div class="pull-left">
                               <h3>{{singel_car.car_title}}</h3>
-                              <h6>
-                                  <i class="flaticon-pin"></i>{{singel_car.address}}
-                              </h6>
                           </div>
                           <div class="pull-right">
-                              <h3><span>${{singel_car.price}}</span></h3>
+                              <h3><span>{{singel_car.price | intcomma}} DDK</span></h3>
                           </div>
                       </div>
                       <div id="carDetailsSlider" class="carousel car-details-sliders slide mb-40">
@@ -170,25 +167,22 @@
                       <div class="tabbing tabbing-box mb-40">
                           <ul class="nav nav-tabs" id="carTab" role="tablist">
                               <li class="nav-item">
-                                  <a class="nav-link active show" id="one-tab" data-toggle="tab" href="#one" role="tab" aria-controls="one" aria-selected="false">Vehicle overview</a>
+                                  <a class="nav-link active show" id="one-tab" data-toggle="tab" href="#one" role="tab" aria-controls="one" aria-selected="false">Beskrivelse </a>
                               </li>
                               <li class="nav-item">
-                                  <a class="nav-link" id="two-tab" data-toggle="tab" href="#two" role="tab" aria-controls="two" aria-selected="false">Features</a>
+                                  <a class="nav-link" id="two-tab" data-toggle="tab" href="#two" role="tab" aria-controls="two" aria-selected="false">udstyr</a>
                               </li>
                           </ul>
                           <div class="tab-content" id="carTabContent">
                               <div class="tab-pane fade active show" id="one" role="tabpanel" aria-labelledby="one-tab">
                                   <div class="car-description mb-50">
-                                      <h3 class="heading-2">
-                                          Description
-                                      </h3>
+
                                       <p>{{singel_car.description | safe}}</p>
                                       
                                   </div>
                               </div>
                               <div class="tab-pane fade" id="two" role="tabpanel" aria-labelledby="two-tab">
                                   <div class="features-info mb-50">
-                                      <h3 class="heading-2">Features</h3>
                                       <div class="row">
                                           <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12">
                                             {% for f in singel_car.features%}
@@ -229,60 +223,32 @@
                       <!-- Advanced search start -->
                       <div class="widget advanced-search d-none-992">
                           <button class="btn btn-outline-danger bomd btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">Send message</button>
-
-
                           <br>
-                          <h3 class="sidebar-title">Refine Your Search</h3>
                           <ul>
-                              <li>
-                                  <span>Body Style:</span>Convertible
-                              </li>
-                              <li>
-                                  <span>Engine:</span>3.4L Mid-Engine V6
-                              </li>
-                              <li>
-                                  <span>Transmission:</span>6-speed Manual
-                              </li>
-                              <li>
-                                  <span>Drivetrain:</span>Rear Wheel Drive
-                              </li>
-                              <li>
-                                  <span>Exaterion:</span>Lime Gold Metallic
-                              </li>
-                              <li>
-                                  <span>Interior:</span>Agate Grey
-                              </li>
-                              <li>
-                                  <span>Miles:</span>12
-                              </li>
-                              <li>
-                                  <span>Doors:</span>2
-                              </li>
-                              <li>
-                                  <span>Passengers:</span>2
-                              </li>
-                              <li>
-                                  <span>Vin #:</span>WP0AB2E81EK190171
-                              </li>
-                              <li>
-                                  <span>Fuel Mileage:</span>20 City / 28 Hwy
-                              </li>
-                              <li>
-                                  <span>Fuel Type:</span>Gasoline
-                              </li>
-                              <li>
-                                  <span>Vin #:</span>WP0AB2E81EK190171
-                              </li>
-
-                              <li>
-                                  <span>Condition:</span>Brand New
-                              </li>
-                              <li>
-                                  <span>Owners:</span>N/A
-                              </li>
-                              <li>
-                                  <span>Waeeanty:</span>3 Years Limited
-                              </li>
+                            <li>
+                                <span>ÅR::</span>{{singel_car.year}}
+                            </li>
+                            <li>
+                                <span>MÆRKE::</span>{{singel_car.make}}
+                            </li>
+                            <li>
+                                <span>Gear:</span>{{singel_car.transmission}}
+                            </li>
+                            <li>
+                                <span>BILTYPE:</span>{{singel_car.body_style}}
+                            </li>
+                            <li>
+                                <span>Farve:</span>{{singel_car.color}}
+                            </li>
+                            <li>
+                              <span>KM:</span>{{singel_car.km}}
+                            </li>
+                            <li>
+                                <span>DØRE:</span>{{singel_car.doors}}
+                            </li>
+                            <li>
+                                <span>BRÆNDSTOF:</span>{{singel_car.fuel_type}}
+                            </li>
                           </ul>
                       </div>
 
