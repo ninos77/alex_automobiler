@@ -28,10 +28,11 @@
                       <div class="car-box-3">
                           <div class="car-thumbnail">
                               <a href="{% url 'car_detail' c.id %}" class="car-img">
-                                  <div class="tag">For Sale</div>
-                                  <div class="price-box">
-                                      <span>${{c.price}}</span>
-                                  </div>
+                                {% if c.is_sold%}
+                                <div class="tag">Solgt</div>
+                                {% else %}
+                                <div class="tag-green">For Sale</div>
+                                {% endif %}
                                   <img class="d-block w-100" src="{{c.car_photo.url}}" alt="car" style="min-height: 262px; max-height: 262px;">
                               </a>
                               <div class="carbox-overlap-wrapper">
