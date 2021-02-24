@@ -9,7 +9,7 @@ from django.core.paginator import EmptyPage,PageNotAnInteger, Paginator
 # Cdef home(request):
 
 def home(request):
-    featured_cars = Car.objects.order_by('-created_date').filter(is_featured=True)
+    featured_cars = Car.objects.order_by('-created_date').filter(is_featured=True)[0:5]
     all_cars = Car.objects.order_by('-created_date')
     all_models = Model.objects.all()
     all_makes = Make.objects.all()
