@@ -5855,6 +5855,13 @@ footer {
     background: linear-gradient(rgba(31, 0, 0, 0.459), rgba(0, 0, 0, 0.699));
     box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
 }
+.sidebar-right2 {
+    margin: 0 0 30px 0;
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
+}
+.martop {
+    margin-top: 200px !important;
+ }
 
 .sidebar-left {
     margin: 0 0 30px 0;
