@@ -1737,11 +1737,11 @@ input[type=checkbox]:checked + label:before {
 }
 
 .sb-7 .button-theme {
-    background: #000;
+    background: transparent;
 }
 
 .sb-7 .button-theme:hover {
-    background: #252525;
+    background: #8a0303;
 }
 
 .sb-8 .bootstrap-select button {
