@@ -19,7 +19,7 @@
             <h3>Write Your Head Text Here</h3>
             <h5>using Lorem Ipsum is that it has a more-or-less normal distribution<br>
               free approach in finding your dream car.</h5>
-            <a href="{% url 'cars' %}" class="btn btn-lg btn-theme">All Cars</a>
+            <a href="{% url 'cars' %}" class="btn btn-lg btn-theme">Alle Bile</a>
           </div>
         </div>
         <div class="carousel-item banner-max-height item-bg">
@@ -28,7 +28,7 @@
             <h3>Write Your Head Text Here</h3>
             <h5>using Lorem Ipsum is that it has a more-or-less normal distribution<br>
               free approach in finding your dream car.</h5>
-            <a href="{% url 'cars' %}" class="btn btn-lg btn-theme">All Cars</a>
+            <a href="{% url 'cars' %}" class="btn btn-lg btn-theme">Alle Bile</a>
           </div>
         </div>
         <div class="carousel-item banner-max-height item-bg">
@@ -37,7 +37,7 @@
             <h3>Write Your Head Text Here</h3>
             <h5>using Lorem Ipsum is that it has a more-or-less normal distribution<br>
               free approach in finding your dream car.</h5>
-            <a href="{% url 'cars' %}" class="btn btn-lg btn-theme">All Cars</a>
+            <a href="{% url 'cars' %}" class="btn btn-lg btn-theme">Alle Biler</a>
           </div>
         </div>
       </div>
@@ -45,7 +45,7 @@
       <div class="search-box-4 sb-8">
         <form action="{% url 'search'%}" method="get" >
           <div class="form-group">
-            <input type="text" name="keyword" placeholder="Search by name" class="form-control">
+            <input type="text" name="keyword" placeholder="Søg efter navn" class="form-control">
           </div>
           <div class="form-group">
             <select id="select1" class="form-control search-fields" name="make">
@@ -55,9 +55,14 @@
               {% endfor %}
             </select>
           </div>
+          <div class="range-slider clearfix">
+            <label style="color: white;">Price</label>
+            <div data-min="0" data-max="150000"  data-min-name="min_price" data-max-name="max_price" data-unit="USD" class="range-slider-ui ui-slider" aria-disabled="false"></div>
+            <div class="clearfix"></div>
+        </div>
           <div class="form-group">
             <button class="btn btn-block button-theme btn-md" >
-              <i class="fa fa-search"></i> Search
+              <i class="fa fa-search"></i> Søg
             </button>
           </div>
         </form>
@@ -81,7 +86,7 @@
     <div class="container">
       <!-- Main title -->
       <div class="main-title">
-        <h1>Featured <span>Cars</span></h1>
+        <h1>Nyhed <span> Biler</span></h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       </div>
       <!-- Slick slider area start -->
@@ -94,19 +99,19 @@
               <div class="car-thumbnail">
                 <a href="{% url 'car_detail' c.id %}" class="car-img">
                   {% if  c.is_sold %}
-                  <div class="tag-sold">Sold</div>
+                  <div class="tag-sold">Solgt</div>
                   {% else %}
-                  <div class="tag-2">Featured</div>
+                  <div class="tag-2">Nyhed</div>
                   {% endif %}
                   {% if c.reduced_price < c.price %}
                   <div class="price-box">
-                    <span class="del"><del>${{c.price}}</del></span>
+                    <span class="del"><del>{{c.price | intcomma}} DKK </del></span>
                     <br>
-                    <span>${{c.reduced_price}}</span>
+                    <span>{{c.reduced_price | intcomma}} DKK </span>
                   </div>
                   {% else %}
                   <div class="price-box">
-                    <span>${{c.price}}</span>
+                    <span>{{c.price | intcomma}} DKK</span>
                   </div>
                   {% endif %}
                   <img class="d-block w-100" src="{{c.car_photo.url}}" alt="car" style="min-height: 262px; max-height: 262px;">
@@ -157,9 +162,8 @@
                 </div>
                 <ul class="facilities-list clearfix">
                   <li>{{c.fuel_type}}</li>
-                  <li>{{c.miles | intcomma }} mile</li>
+                  <li>{{c.km}} km</li>
                   <li>{{c.transmission}}</li>
-                  <li>{{c.body_style}}</li>
                   <li>{{c.color}}</li>
                   <li>{{c.year}}</li>
                 </ul>
@@ -186,17 +190,17 @@
     <div class="container">
       <!-- Main title -->
       <div class="main-title">
-        <h1>Latest <span>Cars</span></h1>
+        <h1>Seneste <span> biler</span></h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       </div>
       <div class="row">
-        {% for c in all_cars %}
+        {% for c in paged_cars %}
         <div class="col-lg-4 col-md-6">
           <div class="car-box">
             <div class="car-thumbnail">
-              <a href="car-details.html" class="car-img">
+              <a href="{% url 'car_detail' c.id %}" class="car-img">
                 {% if c.is_sold%}
-                <div class="tag">Sold</div>
+                <div class="tag">Solgt</div>
                 {% else %}
                 <div class="tag-green">For Sale</div>
                 {% endif %}
@@ -204,7 +208,7 @@
                 <div class="facilities-list clearfix">
                   <ul>
                     <li>
-                      <span><i class="flaticon-way"></i></span>{{c.miles | intcomma }} mile
+                      <span><i class="flaticon-way"></i></span>{{c.km}} km
                     </li>
                     <li>
                       <span><i class="flaticon-calendar-1"></i></span>{{c.year}}
@@ -252,26 +256,61 @@
             </div>
             <div class="detail">
               <h1 class="title">
-                <a href="car-details.html">{{c.car_title}}</a>
+                <a href="{% url 'car_detail' c.id %}">{{c.car_title}}</a>
               </h1>
               <div class="location">
-                <a href="car-details.html">
+                <a href="{% url 'car_detail' c.id %}">
                   <i class="flaticon-pin"></i>{{c.address}}
                 </a>
               </div>
             </div>
             <div class="footer clearfix">
               <div class="pull-left ratings days">
-                <p class="cartype">{{c.body_style}}</p>
+                <p class="cartype">{{c.fuel_type}}</p>
               </div>
               <div class="pull-right">
-                <p class="price">${{c.price}}</p>
+                <p class="price">{{c.price | intcomma}} DKK</p>
               </div>
             </div>
           </div>
         </div>
         {% endfor %}
       </div>
+                    <!-- Page navigation start -->
+                    <div class="pagination-box p-box-2 text-center">
+                      <nav aria-label="Page navigation example">
+                          {% if paged_cars.has_other_pages %}
+                          <ul class="pagination">
+                              {% if paged_cars.has_previous %}
+                              <li class="page-item">
+                                  <a class="page-link" href="?page={{paged_cars.previous_page_number }}"><i class="fa fa-angle-left"></i></a>
+                              </li>
+                              {% else %}
+                              <li class="page-item disabled ">
+                                <a class="page-link"><i class="fa fa-angle-left"></i></a>
+                            </li>
+                            {% endif %}
+                            {% for i in paged_cars.paginator.page_range %}
+                            {% if paged_cars.number == i %}
+                              <li class="page-item"><a class="page-link active" href="#">{{i}}</a></li>
+                             {% else %}   
+                              <li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+                              {% endif %}
+                              {% endfor %}
+      
+                              {% if paged_cars.has_next %}
+                              <li class="page-item">
+                                  <a class="page-link" href="?page={{paged_cars.next_page_number }}"><i class="fa fa-angle-right"></i></a>
+                              </li>
+                              {% else %}
+                              <li class="page-item disabled ">
+                                <a class="page-link"><i class="fa fa-angle-right"></i></a>
+                            </li>
+                            {% endif %}
+                          </ul>
+                          {% endif %}
+                      </nav>
+                  </div>
     </div>
   </div>
   <!-- Latest car end -->

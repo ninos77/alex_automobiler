@@ -2228,7 +2228,7 @@ input[type=checkbox]:checked + label:before {
 }
 
 .car-box .detail .title {
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 10px;
     font-weight: 500;
 }
@@ -2720,7 +2720,7 @@ input[type=checkbox]:checked + label:before {
     color: #fff;
     font-weight: 500;
     line-height: 28px;
-    background: #292929;
+    background: #16812dd8;
     text-transform: uppercase;
 }
 .tag-sold {
@@ -2964,8 +2964,8 @@ input[type=checkbox]:checked + label:before {
 }
 
 .car-box-3 .detail .title {
-    font-size: 20px;
-    font-weight: 400;
+    font-size: 16px;
+    font-weight: 500;
 }
 
 .car-box-3 .detail .title a{
@@ -5852,7 +5852,7 @@ footer {
 /** Sidebar widget start **/
 .sidebar-right {
     margin: 0 0 30px 0;
-    background: #fff;
+    background: linear-gradient(rgba(31, 0, 0, 0.459), rgba(0, 0, 0, 0.699));
     box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
 }
 
@@ -5864,7 +5864,7 @@ footer {
 
 .widget {
     padding: 30px 20px;
-    border-bottom: solid 1px #efefef;
+    border-bottom: solid 1px #646464;
 }
 
 .widget-2 {
@@ -6021,7 +6021,7 @@ footer {
     width: 40%;
     margin-right: -8px;
     font-size: 13px;
-    color: #535353;
+    color: #fff;
     font-weight: 500;
     margin-top: 15px;
 }
@@ -6032,7 +6032,7 @@ footer {
     text-align: right;
     margin-right: -8px;
     font-size: 13px;
-    color: #535353;
+    color: #fff;
     font-weight: 500;
     margin-top: 15px;
 }

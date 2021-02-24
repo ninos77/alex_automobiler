@@ -38,50 +38,130 @@
                       <div id="carDetailsSlider" class="carousel car-details-sliders slide mb-40">
                           <!-- main slider carousel items -->
                           <div class="carousel-inner">
+                            {% if singel_car.car_photo %}
                               <div class="active item carousel-item" data-slide-number="0">
-                                  <img src="{{singel_car.car_photo.url}}" class="img-fluid" alt="slider-car">
+                                  <img src="{{singel_car.car_photo.url}}" class="img-fluid" alt="no-image">
                               </div>
+                              {% endif %}
+                              {% if singel_car.car_photo_1 %}
                               <div class="item carousel-item" data-slide-number="1">
-                                  <img src="{{singel_car.car_photo_1.url}}" class="img-fluid" alt="slider-car">
+                                  <img src="{{singel_car.car_photo_1.url}}" class="img-fluid" alt="no-image">
                               </div>
+                              {% endif %}
+                              {% if singel_car.car_photo_2 %}
                               <div class="item carousel-item" data-slide-number="2">
-                                  <img src="{{singel_car.car_photo_2.url}}" class="img-fluid" alt="slider-car">
+                                  <img src="{{singel_car.car_photo_2.url}}" class="img-fluid" alt="no-image">
                               </div>
-                              <div class="item carousel-item" data-slide-number="4">
-                                  <img src="{{singel_car.car_photo_3.url}}" class="img-fluid" alt="slider-car">
-                              </div>
-                              <div class="item carousel-item" data-slide-number="5">
-                                  <img src="{{singel_car.car_photo_4.url}}" class="img-fluid" alt="slider-car">
-                              </div>
+                              {% endif %}
+                              {% if singel_car.car_photo_3 %}
+                              <div class="item carousel-item" data-slide-number="3">
+                                <img src="{{singel_car.car_photo_3.url}}" class="img-fluid" alt="no-image">
+                             </div>
+                             {% endif %}
+                             {% if singel_car.car_photo_4 %}
+                             <div class="item carousel-item" data-slide-number="4">
+                                <img src="{{singel_car.car_photo_4.url}}" class="img-fluid" alt="no-image">
+                            </div>
+                            {% endif %}
+                            {% if singel_car.car_photo_5 %}
+                            <div class="item carousel-item" data-slide-number="5">
+                                <img src="{{singel_car.car_photo_5.url}}" class="img-fluid" alt="no-image">
+                            </div>
+                            {% endif %}
+                            {% if singel_car.car_photo_6 %}
+                            <div class="item carousel-item" data-slide-number="6">
+                                <img src="{{singel_car.car_photo_6.url}}" class="img-fluid" alt="no-image">
+                            </div>
+                            {% endif %}
+                            {% if singel_car.car_photo_7 %}
+                            <div class="item carousel-item" data-slide-number="7">
+                                <img src="{{singel_car.car_photo_7.url}}" class="img-fluid" alt="no-image">
+                            </div>
+                            {% endif %}
+                            {% if singel_car.car_photo_8 %}
+                            <div class="item carousel-item" data-slide-number="8">
+                                <img src="{{singel_car.car_photo_8.url}}" class="img-fluid" alt="no-image">
+                            </div>
+                            {% endif %}
+                            {% if singel_car.car_photo_9 %}
+                            <div class="item carousel-item" data-slide-number="9">
+                                <img src="{{singel_car.car_photo_9.url}}" class="img-fluid" alt="no-image">
+                            </div>
+                            {% endif %}
                           </div>
                           <!-- main slider carousel nav controls -->
                           <div class="carousel-indicators-section clearfix">
                               <ul class="carousel-indicators car-properties list-inline nav nav-justified">
+                                {% if singel_car.car_photo %}
                                   <li class="list-inline-item active">
                                       <a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#carDetailsSlider">
-                                          <img src="{{singel_car.car_photo_1.url}}" class="img-fluid" alt="small-car">
+                                          <img src="{{singel_car.car_photo.url}}" class="img-fluid" alt="no-image">
                                       </a>
                                   </li>
+                                  {% endif %}
+                                  {% if singel_car.car_photo_1 %}
                                   <li class="list-inline-item">
                                       <a id="carousel-selector-1" data-slide-to="1" data-target="#carDetailsSlider">
-                                          <img src="{{singel_car.car_photo_2.url}}" class="img-fluid" alt="small-car">
+                                          <img src="{{singel_car.car_photo_1.url}}" class="img-fluid" alt="no-image">
                                       </a>
                                   </li>
+                                  {% endif %}
+                                  {% if singel_car.car_photo_2 %}
                                   <li class="list-inline-item">
-                                      <a id="carousel-selector-2" data-slide-to="2" data-target="#carDetailsSlider">
-                                          <img src="{{singel_car.car_photo_3.url}}" class="img-fluid" alt="small-car">
-                                      </a>
-                                  </li>
-                                  <li class="list-inline-item">
-                                      <a id="carousel-selector-3" data-slide-to="3" data-target="#carDetailsSlider">
-                                          <img src="{{singel_car.car_photo_4.url}}" class="img-fluid" alt="small-car">
-                                      </a>
-                                  </li>
-                                  <li class="list-inline-item">
-                                      <a id="carousel-selector-4" data-slide-to="4" data-target="#carDetailsSlider">
-                                          <img src="{{singel_car.car_photo_4.url}}" class="img-fluid" alt="small-car">
-                                      </a>
-                                  </li>
+                                    <a id="carousel-selector-2" data-slide-to="2" data-target="#carDetailsSlider">
+                                        <img src="{{singel_car.car_photo_2.url}}" class="img-fluid" alt="no-image">
+                                    </a>
+                                </li>
+                                {% endif %}
+                                {% if singel_car.car_photo_3 %}
+                                <li class="list-inline-item">
+                                    <a id="carousel-selector-3" data-slide-to="3" data-target="#carDetailsSlider">
+                                        <img src="{{singel_car.car_photo_3.url}}" class="img-fluid" alt="no-image">
+                                    </a>
+                                </li>
+                               {% endif %}
+                               {% if singel_car.car_photo_4 %}
+                               <li class="list-inline-item">
+                                   <a id="carousel-selector-4" data-slide-to="4" data-target="#carDetailsSlider">
+                                       <img src="{{singel_car.car_photo_4.url}}" class="img-fluid" alt="no-image">
+                                   </a>
+                               </li>
+                              {% endif %}
+                              {% if singel_car.car_photo_5 %}
+                              <li class="list-inline-item">
+                                  <a id="carousel-selector-5" data-slide-to="5" data-target="#carDetailsSlider">
+                                      <img src="{{singel_car.car_photo_5.url}}" class="img-fluid" alt="no-image">
+                                  </a>
+                              </li>
+                             {% endif %}
+                             {% if singel_car.car_photo_6 %}
+                             <li class="list-inline-item">
+                                 <a id="carousel-selector-6" data-slide-to="6" data-target="#carDetailsSlider">
+                                     <img src="{{singel_car.car_photo_6.url}}" class="img-fluid" alt="no-image">
+                                 </a>
+                             </li>
+                            {% endif %}
+                            {% if singel_car.car_photo_7 %}
+                            <li class="list-inline-item">
+                                <a id="carousel-selector-7" data-slide-to="7" data-target="#carDetailsSlider">
+                                    <img src="{{singel_car.car_photo_7.url}}" class="img-fluid" alt="no-image">
+                                </a>
+                            </li>
+                           {% endif %}
+                           {% if singel_car.car_photo_8 %}
+                           <li class="list-inline-item">
+                               <a id="carousel-selector-8" data-slide-to="8" data-target="#carDetailsSlider">
+                                   <img src="{{singel_car.car_photo_8.url}}" class="img-fluid" alt="no-image">
+                               </a>
+                           </li>
+                          {% endif %}
+                          {% if singel_car.car_photo_9 %}
+                          <li class="list-inline-item">
+                              <a id="carousel-selector-9" data-slide-to="9" data-target="#carDetailsSlider">
+                                  <img src="{{singel_car.car_photo_9.url}}" class="img-fluid" alt="no-image">
+                              </a>
+                          </li>
+                         {% endif %}
                               </ul>
                           </div>
                       </div>

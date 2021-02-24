@@ -13,10 +13,10 @@ def cars(request):
   all_cars = Car.objects.order_by('-created_date')
   all_makes = Make.objects.all()
   car_account = Car.objects.all().count()   
-  paginator = Paginator(all_cars,4)
+  paginator = Paginator(all_cars,2)
   page = request.GET.get('page')
   paged_cars = paginator.get_page(page)
-  data = {'all_cars':paged_cars,'all_makes':all_makes,'cars':all_cars,'car_acount':car_account}
+  data = {'paged_cars':paged_cars,'all_makes':all_makes,'cars':all_cars,'car_acount':car_account}
   return render (request,'cars/cars.html',data)
 
 

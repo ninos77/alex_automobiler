@@ -39,18 +39,18 @@
           <li class="nav-item">
             <a {% if '/' == request.path %} class="nav-link active" {% else %} class="nav-link" {% endif %}
               href="{% url 'home' %}" aria-haspopup="true" aria-expanded="false">
-              Home
+              Velkommen
             </a>
           </li>
           <li class="nav-item">
             <a {% if 'cars' in request.path %} class="nav-link active" {% else %} class="nav-link" {% endif %} href="{% url 'cars' %}">
-              Cars
+              biler till salg
             </a>
           </li>
           <li class="nav-item">
             <a {% if 'about' in request.path %} class="nav-link active" {% else %} class="nav-link" {% endif %}
               href="{% url 'about' %}">
-              About
+              om oss
             </a>
           </li>
           <li class="nav-item ">
@@ -63,7 +63,7 @@
 
           <li class="nav-item dropdown">
             <a {% if 'contact' in request.path %} class="nav-link active" {% else %} class="nav-link" {% endif %}
-              href="{% url 'contact' %}">Contact</a>
+              href="{% url 'contact' %}">kontakt</a>
           </li>
           <li class="nav-item dropdown">
             <a {% if 'search' in request.path %} class="nav-link active" {% else %} class="nav-link" {% endif %} href="#full-page-search" class="nav-link h-icon ">

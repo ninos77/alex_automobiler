@@ -4,6 +4,7 @@ from cars.models import Car,Model,Make
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from django.contrib import messages
+from django.core.paginator import EmptyPage,PageNotAnInteger, Paginator
 
 # Cdef home(request):
 
@@ -13,6 +14,9 @@ def home(request):
     all_models = Model.objects.all()
     all_makes = Make.objects.all()
     teams = Team.objects.all()
+    paginator = Paginator(all_cars,3)
+    page = request.GET.get('page')
+    paged_cars = paginator.get_page(page)
     make_search = set(all_makes.values_list('make_name', flat=True))
     fuel_type_search = all_cars.values_list('fuel_type',flat=True).distinct()
     transmission_search = all_cars.values_list('transmission',flat=True).distinct()
@@ -22,6 +26,7 @@ def home(request):
         'teams': teams,
         'featured_cars':featured_cars,
         'all_cars':all_cars,
+        'paged_cars':paged_cars,
         'all_makes':all_makes,
         'fuel_type_search':fuel_type_search,
         'transmission_search':transmission_search,
