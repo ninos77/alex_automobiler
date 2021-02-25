@@ -27,9 +27,16 @@
                           <div class="pull-left">
                               <h3>{{singel_car.car_title}}</h3>
                           </div>
+                          {% if singel_car.reduced_price < singel_car.price %}
                           <div class="pull-right">
-                              <h3><span>{{singel_car.price | intcomma}} DDK</span></h3>
+                              <h3><span>{{singel_car.reduced_price | intcomma}} DDK</span></h3>
+                              <span><del>{{singel_car.price | intcomma}} DDK</del></span>
                           </div>
+                        {% else %}
+                        <div class="pull-right">
+                            <h3><span>{{singel_car.price | intcomma}} DDK</span></h3>
+                        </div>
+                        {% endif %}
                       </div>
                       <div id="carDetailsSlider" class="carousel car-details-sliders slide mb-40">
                           <!-- main slider carousel items -->

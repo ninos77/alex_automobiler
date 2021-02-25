@@ -268,9 +268,18 @@
               <div class="pull-left ratings days">
                 <p class="cartype">{{c.fuel_type}}</p>
               </div>
+              {% if c.reduced_price < c.price %}
+              <div class="pull-right">
+                <p class="price">{{c.reduced_price | intcomma}} DKK</p>
+              </div>
+              <div class="pull-right">
+                <h3 class="price del" style="font-size: 12px;"><del>{{c.price | intcomma}} DKK</del></h3>
+              </div>
+              {% else %}
               <div class="pull-right">
                 <p class="price">{{c.price | intcomma}} DKK</p>
               </div>
+              {% endif %}
             </div>
           </div>
         </div>

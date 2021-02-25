@@ -1,6 +1,7 @@
 {% extends "base.html"%}
 {% load static %}
 {% load custom_tags %}
+{% load humanize %}
 {% block content %}
 <!-- Sub banner start -->
 <div class="sub-banner overview-bgi">
@@ -32,6 +33,17 @@
                                 <div class="tag">Solgt</div>
                                 {% else %}
                                 <div class="tag-green">For Sale</div>
+                                {% endif %}
+                                {% if c.reduced_price < c.price %}
+                                <div class="price-box">
+                                  <span class="del"><del>{{c.price | intcomma}} DKK </del></span>
+                                  <br>
+                                  <span>{{c.reduced_price | intcomma}} DKK </span>
+                                </div>
+                                {% else %}
+                                <div class="price-box">
+                                  <span>{{c.price | intcomma}} DKK</span>
+                                </div>
                                 {% endif %}
                                   <img class="d-block w-100" src="{{c.car_photo.url}}" alt="car" style="min-height: 262px; max-height: 262px;">
                               </a>

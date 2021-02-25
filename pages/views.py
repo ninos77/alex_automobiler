@@ -14,7 +14,7 @@ def home(request):
     all_models = Model.objects.all()
     all_makes = Make.objects.all()
     teams = Team.objects.all()
-    paginator = Paginator(all_cars,3)
+    paginator = Paginator(all_cars,6)
     page = request.GET.get('page')
     paged_cars = paginator.get_page(page)
     make_search = set(all_makes.values_list('make_name', flat=True))
