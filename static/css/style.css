@@ -134,6 +134,10 @@ ul {
     background: #a30618;
     color: #fff;
 }
+.instagram-bg:hover {
+    background: #dc4e41;
+    color: #fff;
+}
 
 .delay-02s {
     animation-delay: 0.2s;

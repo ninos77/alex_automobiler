@@ -31,31 +31,281 @@ class Car(models.Model):
    for r in range(1980,(datetime.now().year+1)):
      year_choice.append((r,r))
 
-   features_choices = (
-        ('Bakkamera', 'Bakkamera'),
-        ('Fartpilot, manuel', 'Fartpilot, manuel'),
-        ('Fartpilot, adaptiv', 'Fartpilot, adaptiv'),
-        ('Fjernlys assistent', 'Fjernlys assistent'),
-        ('Kurvelys', 'Kurvelys'),
-        ('Vognbaneassistent', 'Vognbaneassistent'),
-        ('Alufælge', 'Alufælge'),
-        ('Anhængertræk, fast', 'Anhængertræk, fast'),
-        ('Anhængertræk, aftageligt', 'Anhængertræk, aftageligt'),
-        ('LED forlygter', 'LED forlygter'),
-        ('Soltag, manuelt', 'Soltag, manuelt'),
-        ('Soltag, elektrisk', 'Soltag, elektrisk'),
-        ('Panoramatag', 'Panoramatag'),
-        ('Xenonlygter', 'Xenonlygter'),
-        ('Android auto', 'Android auto'),
-        ('Apple carplay', 'Apple carplay'),
-        ('Elruder', 'Elruder'),
-        ('Gear, manuel', 'Gear, manuel'),
-        ('Headup display', 'Headup display'),
-        ('Navigation', 'Navigation'),
-        ('Nøglefri betjening', 'Nøglefri betjening'),
-        ('Varme i sæder', 'Varme i sæder'),
-        ('Varme, aircondition', 'Varme, aircondition'),
-        ('Varme, klimaanlæg', 'Varme, klimaanlæg'),
+   features_choices = (   
+
+  ('aut.','aut.'),
+
+  ('aut.gear/tiptronic','aut.gear/tiptronic'),
+
+  ('alu.','alu'),
+
+  ('15" Alufælge','15" Alufælge'),
+
+  ('16" Alufælge','16" Alufælge'),
+
+  ('17" Alufælge','17" Alufælge'),
+
+  ('18" Alufælge','18" Alufælge'),
+
+  ('19" Alufælge','19" Alufælge'),
+
+  ('20" Alufælge','20" Alufælge'),
+
+  ('21" Alufælge','21" Alufælge'),
+
+  ('22" Alufælge','22" Alufælge'),
+
+  ('vinterhjul','vinterhjul'),
+
+  ('varme i rat','varme i rat'),
+
+  ('airc.','airc.'),
+
+  ('fuldaut. klima','fuldaut. klima'),
+
+  ('2 zone klima','2 zone klima'),
+
+  ('3 zone klima','3 zone klima'),
+
+  ('4 zone klima','4 zone klima'),
+
+  ('køl i handskerum','køl i handskerum'),
+
+  ('elektrisk kabinevarmer','elektrisk kabinevarmer'),
+
+  ('motorkabinevarmer','motorkabinevarmer'),
+
+  ('alarm','alarm'),
+
+  ('c.lås','c.lås'),
+
+  ('fjernb. c.lås','fjernb. c.lås'),
+
+  ('parkeringssensor (bag)','parkeringssensor (bag)'),
+
+  ('parkeringssensor (for)','parkeringssensor (for)'),
+
+  ('ratgearskifte','ratgearskifte'),
+
+  ('fartpilot','fartpilot'),
+
+  ('kørecomputer','kørecomputer'),
+
+  ('infocenter','infocenter'),
+
+  ('startspærre','startspærre'),
+
+  ('varme i forrude','varme i forrude'),
+
+  ('auto. nedbl. Bakspejl','auto. nedbl. Bakspejl'),
+
+  ('udv. temp. måler','auto. nedbl. Bakspejl'),
+
+  ('regnsensor','regnsensor'),
+
+  ('sædevarme','sædevarme'),
+
+  ('højdejust. forsæder','højdejust. forsæder'),
+
+  ('højdejust. førersæde','højdejust. førersæde'),
+
+  ('el indst. forsæder','el indst. forsæder'),
+
+  ('el indst. førersæde','el indst. førersæde'),
+
+  ('el indst. førersæde m. memory','el indst. førersæde m. memory'),
+
+  ('soltag','soltag'),
+
+  ('el-soltag','el-soltag'),
+
+  ('glastag','glastag'),
+
+  ('el-ruder','el-ruder'),
+
+  ('4x el-ruder','4x el-ruder'),
+
+  ('el-spejle','el-spejle'),
+
+  ('el-klapbare sidespejle','el-klapbare sidespejle'),
+
+  ('el-klapbare sidespejle m. varme','el-klapbare sidespejle m. varme'),
+
+  ('el-spejle m/varme','el-spejle m/varme'),
+
+  ('nøglefri betjening','nøglefri betjening'),
+
+  ('automatisk parkerings system','automatisk parkerings system'),
+
+  ('360° kamera','360° kamera'),
+
+  ('bakkamera','bakkamera'),
+
+  ('adaptiv fartpilot','adaptiv fartpilot'),
+
+  ('automatisk start/stop','automatisk start/stop'),
+
+  ('el betjent bagklap','el betjent bagklap'),
+
+  ('dæktryksmåler','dæktryksmåler'),
+
+  ('adaptiv undervogn','adaptiv undervogn'),
+
+  ('elektrisk parkeringsbremse','elektrisk parkeringsbremse'),
+
+  ('træthedsregistrering','træthedsregistrering'),
+
+  ('skiltegenkendelse','skiltegenkendelse'),
+
+  ('CD','CD'),
+
+  ('CD/radio','CD/radio'),
+
+  ('radio med CD-boks','radio med CD-boks'),
+
+  ('DAB radio','DAB radio'),
+
+  ('DAB+ radio','DAB+ radio'),
+
+  ('navigation','navigation'),
+
+  ('multifunktionsrat','multifunktionsrat'),
+
+  ('håndfrit til mobil','håndfrit til mobil'),
+
+  ('bluetooth','bluetooth'),
+
+  ('musikstreaming via bluetooth','musikstreaming via bluetooth'),
+
+  ('nightvision','nightvision'),
+
+  ('digitalt cockpit','digitalt cockpit'),
+
+  ('headup display','headup display'),
+
+  ('Android Auto','Android Auto'),
+
+  ('Apple CarPlay','Apple CarPlay'),
+
+  ('Internet','Internet'),
+
+  ('trådløs mobilopladning','trådløs mobilopladning'),
+
+  ('SD kortlæser','SD kortlæser'),
+
+  ('USB tilslutning','USB tilslutning'),
+
+  ('AUX tilslutning','AUX tilslutning'),
+
+  ('armlæn','armlæn'),
+
+  ('isofix','isofix'),
+
+  ('bagagerumsdækken','bagagerumsdækken'),
+
+  ('kopholder','kopholder'),
+
+  ('stofindtræk','stofindtræk'),
+
+  ('dellæder','dellæder'),
+
+  ('læderindtræk','læderindtræk'),
+
+  ('kunstlæder','kunstlæder'),
+
+  ('splitbagsæde','splitbagsæde'),
+
+  ('læderrat','læderrat'),
+
+  ('el komfortsæder','el komfortsæder'),
+
+  ('sportssæder','sportssæder'),
+
+  ('integrerede børnesæder','integrerede børnesæder'),
+
+  ('3 individuelle sæder i bag','3 individuelle sæder i bag'),
+
+  ('lygtevasker','lygtevasker'),
+
+  ('tågelygter','tågelygter'),
+
+  ('bi-xenon','bi-xenon'),
+
+  ('xenonlys','xenonlys'),
+
+  ('automatisk lys','automatisk lys'),
+
+  ('fjernlysassistent','fjernlysassistent'),
+
+  ('kurvelys','kurvelys'),
+
+  ('LED kørelys','LED kørelys'),
+
+  ('fuld LED forlygter','fuld LED forlygter'),
+
+  ('airbag','airbag'),
+
+  ('db. airbags','db. airbags'),
+
+  ('4 airbags','4 airbags'),
+
+  ('6 airbags','6 airbags'),
+
+  ('7 airbags','7 airbags'),
+
+  ('8 airbags','8 airbags'),
+
+  ('9 airbags','9 airbags'),
+
+  ('10 airbags','10 airbags'),
+
+  ('ABS','ABS'),
+
+  ('antispin','antispin'),
+
+  ('ESP','ESP'),
+
+  ('servo','servo'),
+
+  ('vognbaneassistent','vognbaneassistent'),
+
+  ('blindvinkelsassistent','blindvinkelsassistent'),
+
+  ('automatisk nødbremsesystem','automatisk nødbremsesystem'),
+
+  ('sænket','sænket'),
+
+  ('tagræling','tagræling'),
+
+  ('tonede ruder','tonede ruder'),
+
+  ('mørktonede ruder i bag','mørktonede ruder i bag'),
+
+  ('afhentning','afhentning'),
+
+  ('1 ejer','1 ejer'),
+
+  ('ikke ryger','ikke ryger'),
+
+  ('nysynet','nysynet'),
+
+  ('lev. nysynet','lev. nysynet'),
+
+  ('service ok','service ok'),
+
+  ('brugtbilsattest','brugtbilsattest'),
+
+  ('træk','træk'),
+
+  ('aftag. træk','aftag. træk'),
+
+  ('svingbart træk (manuel)','svingbart træk (manuel)'),
+
+  ('svingbart træk (elektrisk)','svingbart træk (elektrisk)'),
+
+  ('diesel partikel filter','diesel partikel filter'),
+
+  ('tidligere undervognsbehandle','tidligere undervognsbehandle'),
     )
 
    door_choices = (

@@ -14,6 +14,7 @@ class CarAdmin(admin.ModelAdmin):
   list_editable = ('is_featured','is_sold')
   search_fields = ('description','car_title', 'make', 'model','transmission', 'year','fuel_type')
   list_filter = ('model', 'make','model', 'fuel_type')
+  features = (('Bakkamera','Fartpilot, manuel','Fartpilot, adaptiv'),('Fjernlys assistent','Kurvelys','Vognbaneassistent','Alufælge'))
 
 
 
