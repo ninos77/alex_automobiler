@@ -30,6 +30,7 @@ def search(request):
   model = None
   min_price = None
   all_cars = Car.objects.order_by('-created_date')
+  all_makes = Make.objects.all()
   if 'keyword' in request.GET:
     keyword = request.GET['keyword']
     if keyword:
@@ -52,7 +53,8 @@ def search(request):
     return redirect(reverse('cars')) 
   context ={
 
-    'all_cars':all_cars
+    'all_cars':all_cars,
+    'all_makes':all_makes
   }
   return render (request,'cars/search.html',context) 
 
