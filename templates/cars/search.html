@@ -147,7 +147,7 @@
               </h1>
               <div class="location">
                 <a href="{% url 'car_detail' c.id %}">
-                  <i class="flaticon-pin"></i>{{c.state}} {{c.city}},
+                  <i class="flaticon-pin"></i>{{c.address}}
                 </a>
               </div>
             </div>
@@ -156,7 +156,7 @@
                 <p class="cartype">{{c.body_style}}</p>
               </div>
               <div class="pull-right">
-                <p class="price">${{c.price}}</p>
+                <p class="price">{{c.price}}DKK</p>
               </div>
             </div>
           </div>

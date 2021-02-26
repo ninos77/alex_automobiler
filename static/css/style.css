@@ -8216,6 +8216,9 @@ table {
     .hide-carat .nav-link::after {
         display: none !important;
     }
+    .hide-car{
+        display: none !important;
+    }
 
     .sticky-header {
         position: fixed;
