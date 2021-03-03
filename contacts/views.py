@@ -4,6 +4,9 @@ from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib.auth.models import User
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail 
+from django.conf import settings
 # Create your views here.
 
 def inquiry(request):
@@ -25,15 +28,14 @@ def inquiry(request):
     admin_info = User.objects.get(is_superuser=True)
     admin_email = admin_info.email 
 
-    send_mail(
-
-          email_subject,
-          message_body,
-          email,
-          [admin_email],
-          fail_silently=False,
-          
-        )
+    mail_message = Mail(
+                from_email= 'info@projtest.xyz',
+                to_emails='info@projtest.xyz',
+                subject='Sending with Twilio SendGrid is Fun',
+                html_content= message_body,
+            )   
+    sg = SendGridAPIClient(settings.SENDGRID_API_KEY)
+    response = sg.send(mail_message)
     contact.save()
     messages.success(request,"You request hase been submited")
     return redirect('/cars/'+car_id)

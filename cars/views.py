@@ -42,12 +42,14 @@ def search(request):
     if make:
       all_cars  = all_cars.filter(make_id=make) 
 
-  if 'min_price' in request.GET:
+  if 'min_price' in request.GET and 'max_price' in request.GET:
     min_price = request.GET['min_price']
     max_price = request.GET['max_price']
-    if max_price:
-      all_cars = all_cars.filter(price__gte=min_price,price__lte=max_price)
-
+    if min_price == 0 and max_price == 500000:
+      messages.error(request, "You didn't enter any search criteria!")
+      return redirect(reverse('cars')) 
+    else:
+      all_cars = all_cars.filter(price__gte=min_price,price__lte=max_price) 
   if not keyword and not make and not model and not min_price:
     messages.error(request, "You didn't enter any search criteria!")
     return redirect(reverse('cars')) 

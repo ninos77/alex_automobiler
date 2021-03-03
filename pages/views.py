@@ -5,6 +5,10 @@ from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from django.contrib import messages
 from django.core.paginator import EmptyPage,PageNotAnInteger, Paginator
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail 
+from django.conf import settings
+
 
 # Cdef home(request):
 
@@ -51,24 +55,23 @@ def contact(request):
         name = request.POST['name']
         email = request.POST['email']
         message = request.POST['message']
-        email_subject = "You have Email from Alexautomobiler"
         message_body = 'Name: '+ name +'.'+'\nEmail: '+ email +'.'+'\n\n'+ message +'.'
         admin_info = User.objects.get(is_superuser=True)
         admin_email = admin_info.email 
-
-        send_mail(
-
-                email_subject,
-                message_body,
-                email,
-                [admin_email],
-                fail_silently=False,
-                
-            )
+        mail_message = Mail(
+                from_email= 'info@projtest.xyz',
+                to_emails='info@projtest.xyz',
+                subject='Sending with Twilio SendGrid is Fun',
+                html_content= message_body,
+            )   
+        sg = SendGridAPIClient(settings.SENDGRID_API_KEY)
+        response = sg.send(mail_message)
         messages.success(request,"You request hase been submited")
-        return redirect('contact')     
+        return redirect('contact')
+    
+    return render(request, 'pages/contact.html')  
 
-    return render(request, 'pages/contact.html')
+    
 
 
 def aboutBusiness(request):
