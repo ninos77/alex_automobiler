@@ -538,6 +538,9 @@ input[type=checkbox]:checked + label:before {
     color: #FFF !important;
     outline: none;
 }
+.button-50-500{
+    background-color: #ff8e00 !important;
+}
 
 .button-theme:hover {
     color: #fff;
@@ -9934,7 +9937,7 @@ a.nav-link.active{
 
 }
 .finance-photo{
-    background: url('/static/img/car/basisbank.jpg');
+    background: url('/static/img/car/basisbank_1a.png');
     background-size: 450px 300px;
     height: 360px;
     background-position: center center;
