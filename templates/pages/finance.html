@@ -1,29 +1,33 @@
 {% extends "base.html"%}
 {% load static %}
-
+{% load custom_tags %}
+{% load humanize %}
 {% block content %}
-<div class="sub-banner overview-bgi">
+<div class="sub-banner-finance overview-bgi">
   <div class="container breadcrumb-area">
     <div class="breadcrumb-areas">
-      <h1>Tjenester</h1>
+      <h1>Finansiering</h1>
       <ul class="breadcrumbs">
         <li><a href="{% url 'home' %}">Hjem</a></li>
-        <li class="active">Tjenester</li>
+        <li class="active">Finansiering</li>
       </ul>
     </div>
   </div>
 </div>
 <!-- Sub Banner end -->
 
-<!-- Services start -->
+
 <div class="services content-area">
   <div class="container">
     <!-- Main title -->
     <div class="main-title text-center">
-      <h1>Vores <span> tjenester</span></h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+      <h1>Hos <span> Alexautomobiler</span></h1>
+      <p>kan du få finansieret dit bilkøb gennem <strong>Basisbank</strong> eller <strong>Resurs Bank.</strong> Vi tilbyder billån med eller uden udbetaling.</p>
     </div>
-    <div class="row">
+
+    
+<!-- Services start -->
+    <!--<div class="row">
       <div class="col-lg-4 col-md-6 col-sm-6">
         <div class="service-info">
           <div class="number">1</div>
@@ -132,7 +136,8 @@
           </div>
         </div>
       </div>
-    </div>
+    </div>--->
+<!--Services end -->
   </div>
 </div>
 <!-- Services end -->

@@ -6122,7 +6122,7 @@ footer {
 
 /** Sub Banner start **/
 .sub-banner {
-    background: rgba(143, 143, 143, 0.137) url('/static/img/pic-1.jpg') top left repeat;
+    background: rgba(143, 143, 143, 0.137) url('/static/img/img-page-1.jpg') top left repeat;
     background-size: cover;
     height: 360px;
     background-position: center center;
@@ -6131,8 +6131,26 @@ footer {
     text-align: center;
     font-family: 'Roboto', sans-serif;
 }
+.sub-banner-finance {
+    background: rgba(104, 84, 84, 0.322) url('/static/img/car/finance.jpg') top left repeat;
+    background-size: 2200px 500px;
+    height: 360px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: left top;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
 
 .sub-banner .breadcrumb-area {
+    letter-spacing: 1px;
+    position: absolute;
+    top: 55%;
+    right: 0;
+    opacity: 0.9;
+    left: 0;
+}
+.sub-banner-finance .breadcrumb-area {
     letter-spacing: 1px;
     position: absolute;
     top: 55%;
@@ -6152,8 +6170,23 @@ footer {
     font-size: 30px;
     text-transform: uppercase;
 }
+.sub-banner-finance .breadcrumb-area h1 {
+    margin: 0 0 7px;
+    font-weight: 500;
+    color: #fff;
+    font-size: 30px;
+    text-transform: uppercase;
+}
 
 .sub-banner .breadcrumbs li {
+    display: inline-block;
+    list-style: none;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+.sub-banner-finance .breadcrumbs li {
     display: inline-block;
     list-style: none;
     font-size: 16px;
@@ -6165,13 +6198,28 @@ footer {
 .sub-banner .breadcrumbs li a{
     color: #fff;
 }
-
+.sub-banner-finance .breadcrumbs li a{
+    color: #fff;
+}
 .sub-banner .breadcrumbs .active {
     margin-left: 3px;
     color: #fff;
 }
 
+.sub-banner-finance .breadcrumbs .active {
+    margin-left: 3px;
+    color: #fff;
+}
+
 .sub-banner .breadcrumbs .active:before {
+    margin-right: 7px;
+    content: "/";
+    padding: 0 3px;
+    color: #fff;
+    font: normal normal normal 16px/1 FontAwesome;
+}
+
+.sub-banner-finance .breadcrumbs .active:before {
     margin-right: 7px;
     content: "/";
     padding: 0 3px;
@@ -9017,6 +9065,16 @@ table {
     .sub-banner {
         height: 330px;
     }
+    .sub-banner-finance {
+        background: rgba(104, 84, 84, 0.322) url('/static/img/car/finance.jpg') top left repeat;
+        background-size: 100% 500px;
+        height: 360px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        position: left top;
+        text-align: center;
+        font-family: 'Roboto', sans-serif;
+    }
 
     .sticky-header {
         position: fixed;
@@ -9062,13 +9120,32 @@ table {
         background-position: inherit;
         background-repeat: inherit;
     }
+    .sub-banner-finance {
+        background: rgba(104, 84, 84, 0.322) url('/static/img/car/finance.jpg') top left repeat;
+        background-size: 100% 500px;
+        height: 360px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        position: left top;
+        text-align: center;
+        font-family: 'Roboto', sans-serif;
+    }
 }
 
 @media (max-width: 768px) {
     .sub-banner {
         height: 300px;
     }
-
+    .sub-banner-finance {
+        background: rgba(104, 84, 84, 0.322) url('/static/img/car/finance.jpg') top left repeat;
+        background-size: 100% 500px;
+        height: 360px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        position: left top;
+        text-align: center;
+        font-family: 'Roboto', sans-serif;
+    }
     .shop-info h3 {
         font-size: 22px;
     }

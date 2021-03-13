@@ -46,8 +46,8 @@ def about(request):
     return render(request, 'pages/about.html',{'teams': teams})
 
 
-def services(request):
-    return render(request, 'pages/services.html')
+def finance(request):
+    return render(request, 'pages/finance.html')
 
 
 def contact(request):
