@@ -47,20 +47,28 @@
               biler til salg
             </a>
           </li>
+          <li class="nav-item dropdown">
+            <a {% if 'finance' in request.path %} class="nav-link active dropdown-toggle" {% else %} class="nav-link dropdown-toggle" {% endif %} href="#" data-toggle="dropdown">Finansiering <i class="fa fa-angle-down"></i></a>
+            <ul class="dropdown-menu fade-up">
+            <li><a class="dropdown-item" href="{% url 'finance' %}">Basisbank</a></li>
+            </ul>
+        </li>
           <li class="nav-item">
             <a {% if 'about' in request.path %} class="nav-link active" {% else %} class="nav-link" {% endif %}
               href="{% url 'about' %}">
               om oss
             </a>
           </li>
-          <li class="nav-item ">
-            <a {% if 'finance' in request.path %} class="nav-link active" {% else %} class="nav-link" {% endif %}
-              href="{% url 'finance' %}">
-              Finansiering
+          <!--<li class="nav-item dropdown">
+            <a {% if 'finance' in request.path %} class="nav-link active dropdown-toggle" {% else %} class="nav-link dropdown-toggle" {% endif %}
+              href="{% url 'finance' %}" data-toggle="dropdown">
+              Finansiering <i class="fa fa-angle-down"></i>
             </a>
-          </li>
-
-
+            <ul class="dropdown-menu">
+              <li><a {% if 'finance' in request.path %} class="nav-link active dropdown-toggle" {% else %} class="nav-link dropdown-toggle" {% endif %}
+                href="{% url 'finance' %}" data-toggle="dropdown">Basisbank</a></li>
+            </ul>
+          </li>--->
           <li class="nav-item dropdown">
             <a {% if 'contact' in request.path %} class="nav-link active" {% else %} class="nav-link" {% endif %}
               href="{% url 'contact' %}">kontakt</a>

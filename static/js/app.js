@@ -520,5 +520,19 @@ $('#search').bind('keypress keydown keyup', function(e){
  });
 
 
+// refresh CSS without reloading page
+
+$(document).ready(function(){
+    var links = document.getElementsByTagName("link");
+    for (var cl in links)
+    {
+        var link = links[cl];
+        if (link.rel === "stylesheet")
+            link.href += "";
+    }
+
+});
+
+
 
 
