@@ -6125,7 +6125,7 @@ footer {
 
 /** Sub Banner start **/
 .sub-banner {
-    background: rgba(143, 143, 143, 0.137) url('/static/img/img-page-1.jpg') top left repeat;
+    background: rgba(143, 143, 143, 0.137) url('/static/img/car/cars-out.jpg') top left repeat;
     background-size: cover;
     height: 360px;
     background-position: center center;
@@ -6135,7 +6135,7 @@ footer {
     font-family: 'Roboto', sans-serif;
 }
 .sub-banner-finance {
-    background: rgba(104, 84, 84, 0.322) url('/static/img/car/finance.jpg') top left repeat;
+    background: rgba(104, 84, 84, 0.322) url('/static/img/car/cars-out.jpg') top left repeat;
     background-size: 2200px 500px;
     height: 360px;
     background-position: center center;
@@ -9069,7 +9069,7 @@ table {
         height: 330px;
     }
     .sub-banner-finance {
-        background: rgba(104, 84, 84, 0.322) url('/static/img/car/finance.jpg') top left repeat;
+        background: rgba(104, 84, 84, 0.322) url('/static/img/car/cars-out.jpg') top left repeat;
         background-size: 100% 500px;
         height: 360px;
         background-position: center center;
@@ -9124,7 +9124,7 @@ table {
         background-repeat: inherit;
     }
     .sub-banner-finance {
-        background: rgba(104, 84, 84, 0.322) url('/static/img/car/finance.jpg') top left repeat;
+        background: rgba(104, 84, 84, 0.322) url('/static/img/car/cars-out.jpg') top left repeat;
         background-size: 100% 500px;
         height: 360px;
         background-position: center center;
@@ -9140,7 +9140,7 @@ table {
         height: 300px;
     }
     .sub-banner-finance {
-        background: rgba(104, 84, 84, 0.322) url('/static/img/car/finance.jpg') top left repeat;
+        background: rgba(104, 84, 84, 0.322) url('/static/img/cars-out.jpg') top left repeat;
         background-size: 100% 500px;
         height: 360px;
         background-position: center center;
