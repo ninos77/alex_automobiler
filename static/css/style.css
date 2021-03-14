@@ -9069,7 +9069,7 @@ table {
         height: 330px;
     }
     .sub-banner-finance {
-        background: rgba(104, 84, 84, 0.322) url('/static/img/car/cars-out.jpg') top left repeat;
+        background: rgba(104, 84, 84, 0.322) url('/static/img/cars-out.jpg') top left repeat;
         background-size: 100% 500px;
         height: 360px;
         background-position: center center;
