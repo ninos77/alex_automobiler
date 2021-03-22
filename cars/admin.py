@@ -12,9 +12,10 @@ class CarAdmin(admin.ModelAdmin):
   list_display = ('thumbnail','car_title', 'color','make', 'model', 'year','transmission','body_style', 'fuel_type', 'is_featured','is_sold')
   list_display_links = ('thumbnail', 'car_title')
   list_editable = ('is_featured','is_sold')
-  search_fields = ('description','car_title', 'make', 'model','transmission', 'year','fuel_type')
-  list_filter = ('model', 'make','model', 'fuel_type')
+  search_fields = ('description','car_title', 'make__make_name', 'model__model_name','transmission', 'year','fuel_type')
+  list_filter = ('model__model_name', 'make__make_name', 'fuel_type')
   features = (('Bakkamera','Fartpilot, manuel','Fartpilot, adaptiv'),('Fjernlys assistent','Kurvelys','Vognbaneassistent','Alufælge'))
+  list_per_page=20
 
 
 
