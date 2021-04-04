@@ -76,7 +76,6 @@
       <div class="main-title">
         {% include 'includes/messages.html'%}
         <h1>Der er ingen <span> biler</span></h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </div>
     {% endif %}
       <div class="row">
@@ -88,13 +87,13 @@
                 {% if c.is_sold%}
                 <div class="tag">Sold</div>
                 {% else %}
-                <div class="tag-green">For Sale</div>
+                <div class="tag-green">Til Salg</div>
                 {% endif %}
                 <img class="d-block w-100" src="{{c.car_photo.url}}" alt="car" style="min-height: 262px; max-height: 262px;" >
                 <div class="facilities-list clearfix">
                   <ul>
                     <li>
-                      <span><i class="flaticon-way"></i></span>{{c.miles | intcomma }} mile
+                      <span><i class="flaticon-way"></i></span>{{c.km | intcomma }} Km
                     </li>
                     <li>
                       <span><i class="flaticon-calendar-1"></i></span>{{c.year}}

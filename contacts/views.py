@@ -23,16 +23,16 @@ def inquiry(request):
       return redirect('/cars/'+car_id)
     
     contact = Contact(full_name=full_name,email=email,customer_need=customer_need,car_title=car_title,message=message,car_id=car_id)
-    email_subject = "You have Email from Alexautomobiler asking about this car "+ car_title +'.'
+    email_subject = customer_need +' '+ car_title +'.'
     message_body = 'Name: '+ full_name +'.'+'\nEmail: '+ email +'.'+'\n\n'+ message +'.'
     admin_info = User.objects.get(is_superuser=True)
     admin_email = admin_info.email 
 
     mail_message = Mail(
-                from_email= 'info@projtest.xyz',
-                to_emails='info@projtest.xyz',
-                subject='Sending with Twilio SendGrid is Fun',
-                html_content= message_body,
+                from_email = 'info@alexautomobiler.dk',
+                to_emails = 'info@alexautomobiler.dk',
+                subject = email_subject,
+                html_content = message_body,
             )   
     sg = SendGridAPIClient(settings.SENDGRID_API_KEY)
     response = sg.send(mail_message)
